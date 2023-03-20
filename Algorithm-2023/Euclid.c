@@ -15,8 +15,10 @@ int main(void)
 int Euclid(int a, int b)
 {
 	
-	if (b = 0)
+	//1. If(b == 0) return a // 종료조건 of 재귀호출!
+	if (b == 0)
 		return a;
-	else
-		return Euclid(a, a % b);
+
+	//2. return Euclid(b, a mod b)
+	return Euclid(b, a % b);
 }

@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int Euclid(int a, int b);
-int main(void)
+int test1_euclid()
 {
 	int gcd;
 
@@ -11,6 +11,10 @@ int main(void)
 	printf("%d", gcd);
 
 	return 0;
+}
+int main(void)
+{
+	test1_euclid();
 }
 int Euclid(int a, int b)
 {

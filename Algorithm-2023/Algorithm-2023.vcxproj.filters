@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Algorithm-2023.c">
+    <ClCompile Include="1장 6번.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

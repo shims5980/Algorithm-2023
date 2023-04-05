@@ -8,7 +8,7 @@
 #include <time.h>
 //프로토타입: int findFakeCoin(int coin[], int coinNum)
 int findFakeCoin(int coin[], int coinNum);
-
+//
 int main(void)
 {
 	int arr[1024] = { 0 }, i, r, coin;

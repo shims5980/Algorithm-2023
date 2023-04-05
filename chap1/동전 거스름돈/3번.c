@@ -1,11 +1,23 @@
+/*	과목: 알고리즘
+    이름: 심기윤
+    학번: 201910852
+    실습날짜: 2023.03.29
+    실습내용: 동전 거스름돈	*/
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-void calcChange(int change);
+typedef struct {
+    int C500;
+    int C100;
+    int C50;
+    int C10;
+}Coin;
+
+int calcChange(int change, Coin *c);
 void test_calcChange();
 
 int main() {
-    
+
     test_calcChange();
 
     return 0;
@@ -13,41 +25,42 @@ int main() {
 
 void test_calcChange()
 {
-    int change = 0;
+    int changee = 0, count = 0;
+    Coin coins;
 
     // 거스름돈을 입력받는다.
     printf("거스름돈을 입력하세요: ");
-    scanf("%d", &change);
+    scanf("%d", &changee);
 
-    calcChange(change);
+    count = calcChange(changee, &coins);
+
+    printf("500원짜리 동전 개수: %d\n", coins.C500);
+    printf("100원짜리 동전 개수: %d\n", coins.C100);
+    printf("50원짜리 동전 개수: %d\n", coins.C50);
+    printf("10원짜리 동전 개수: %d\n", coins.C10);
+    printf("총 동전 개수: %d\n", count);
 }
 
-void calcChange(int change)
+int calcChange(int change, Coin *c)
 {
-    int count500, count100, count50, count10;
-
-    count500 = count100 = count50 = count10 = 0;
+    int count;
 
     // 500원짜리 동전 개수를 계산한다.
-    count500 = change / 500;
+    c->C500 = change / 500;
     change = change % 500;
 
     // 100원짜리 동전 개수를 계산한다.
-    count100 = change / 100;
+    c->C100 = change / 100;
     change = change % 100;
 
     // 50원짜리 동전 개수를 계산한다.
-    count50 = change / 50;
+    c->C50 = change / 50;
     change = change % 50;
 
     // 10원짜리 동전 개수를 계산한다.
-    count10 = change / 10;
+    c->C10 = change / 10;
     change = change % 10;
 
-    // 거스름돈과 동전 개수를 출력한다.
-    printf("500원짜리 동전 개수: %d\n", count500);
-    printf("100원짜리 동전 개수: %d\n", count100);
-    printf("50원짜리 동전 개수: %d\n", count50);
-    printf("10원짜리 동전 개수: %d\n", count10);
-    printf("총 동전 개수: %d\n", count500 + count100 + count50 + count10);
+    count = c->C500 + c->C100 + c->C50 + c->C10;
+    return count;
 }

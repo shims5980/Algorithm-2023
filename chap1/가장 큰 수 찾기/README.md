@@ -1,5 +1,7 @@
 # 가장 큰 수 찾기
-프로토타입: int findMaxNumber(int numArray[], int count)
+##### 프로토타입
+int findMaxNumber(int numArray[], int count)
+##### 알고리즘
 1. 가장 큰 값을 저장할 변수를 선언하고 초기값은 제일 첫 카드로 한다.
 2. 첫 번째와 두 번째를 비교 후 더 큰 값을 선언한 변수에 저장한다.
 3. 나머지 카드에 대해 2를 반복한다.

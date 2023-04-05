@@ -1,11 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
+void calcChange(int change);
+void test_calcChange();
+
 int main() {
-    int change, count500, count100, count50, count10;
+    
+    test_calcChange();
+
+    return 0;
+}
+
+void test_calcChange()
+{
+    int change = 0;
 
     // 거스름돈을 입력받는다.
     printf("거스름돈을 입력하세요: ");
     scanf("%d", &change);
+
+    calcChange(change);
+}
+
+void calcChange(int change)
+{
+    int count500, count100, count50, count10;
+
+    count500 = count100 = count50 = count10 = 0;
 
     // 500원짜리 동전 개수를 계산한다.
     count500 = change / 500;
@@ -29,6 +50,4 @@ int main() {
     printf("50원짜리 동전 개수: %d\n", count50);
     printf("10원짜리 동전 개수: %d\n", count10);
     printf("총 동전 개수: %d\n", count500 + count100 + count50 + count10);
-
-    return 0;
 }

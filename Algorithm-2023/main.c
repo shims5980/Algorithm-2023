@@ -6,8 +6,13 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
+int testEuclid();
+
 int main(void)
 {
-	
-    return 0;
+	int ret = 0;
+	printf("Hello, world\n");
+	ret = testEuclid();
+
+	return 0;
 }

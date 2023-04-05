@@ -1,3 +1,8 @@
+/*	과목: 알고리즘
+	이름: 심기윤
+	학번: 201910852
+	실습날짜: 2023.03.29
+	실습내용: 임의의 숫자 찾기	*/
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 

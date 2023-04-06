@@ -11,7 +11,7 @@ int testEuclid();
 int main(void)
 {
 	int ret = 0;
-	printf("Hello, world\n");
+	
 	ret = testEuclid();
 
 	return 0;

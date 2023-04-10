@@ -1,5 +1,5 @@
-<span style="color:blue">
-	# 유클리드 최대공약수
+<span style="color:red">
+	유클리드 최대공약수
 </span>
 
 ## 재귀함수 호출 방법과 반복적인 방법

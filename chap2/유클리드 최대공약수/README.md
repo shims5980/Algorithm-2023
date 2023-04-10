@@ -52,6 +52,7 @@ int euclidRecursive(int a, int b)
 
 	//2. return Euclid(b, a mod b)
 	return euclidRecursive(b, a % b);
+}
 
 /* 버전 2 */
 
@@ -82,7 +83,9 @@ int euclidRepeative(int a, int b)
 	//5. RETURN a
 	return a;
 }
+
 /* TC1. 테스트 함수 */
+
 int testEuclid()
 {
 	clock_t start, finish;

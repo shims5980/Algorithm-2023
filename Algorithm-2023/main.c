@@ -7,12 +7,14 @@
 #include <stdio.h>
 
 int testEuclid();
+void VtestEuclid();
 
 int main(void)
 {
 	int ret = 0;
 	
 	ret = testEuclid();
+	VtestEuclid();
 
 	return 0;
 }

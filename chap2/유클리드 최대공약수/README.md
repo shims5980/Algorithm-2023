@@ -44,7 +44,8 @@ TC1. 1000보다 큰 임의의 수와 100보다 큰 임의의 수를 지정하여
 
 //유클리드 최대공약수 재귀호출 방법
 
-int euclidRecursive(int a, int b){
+int euclidRecursive(int a, int b)
+{
 	//1. If(b == 0) return a
 	if (b == 0)
 		return a;
@@ -57,7 +58,8 @@ int euclidRecursive(int a, int b){
 
 //유클리드 최대공약수 반복적인 방법
 
-int euclidRepeative(int a, int b){
+int euclidRepeative(int a, int b)
+{
 	//1. IF a < b RETURN 0; // 입력확인
 	if (a < b)
 		return 0;
@@ -84,7 +86,8 @@ int euclidRepeative(int a, int b){
 
 /* TC1. 테스트 함수 */
 
-int testEuclid(){
+int testEuclid()
+{
 	clock_t start, finish;
 	double duration;
 	int gcdRecursive = 0, gcdRepeative = 0, num1 = 0, num2 = 0, times = 100000;

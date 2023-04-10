@@ -46,14 +46,13 @@ TC1. 1000보다 큰 임의의 수와 100보다 큰 임의의 수를 지정하여
 
 int euclidRecursive(int a, int b)
 
-{
 	//1. If(b == 0) return a
 	if (b == 0)
 		return a;
 
 	//2. return Euclid(b, a mod b)
 	return euclidRecursive(b, a % b);
-}
+
 
 /* 버전 2 */
 
@@ -61,7 +60,6 @@ int euclidRecursive(int a, int b)
 
 int euclidRepeative(int a, int b)
 
-{
 	//1. IF a < b RETURN 0; // 입력확인
 	if (a < b)
 		return 0;
@@ -84,13 +82,12 @@ int euclidRepeative(int a, int b)
 	
 	//5. RETURN a
 	return a;
-}
+
 
 /* TC1. 테스트 함수 */
 
 int testEuclid()
 
-{
 	clock_t start, finish;
 	double duration;
 	int gcdRecursive = 0, gcdRepeative = 0, num1 = 0, num2 = 0, times = 100000;
@@ -126,4 +123,4 @@ int testEuclid()
 	printf("걸린 시간은 %lf초 입니다.\n", duration);
 
 	return 0;
-}
+

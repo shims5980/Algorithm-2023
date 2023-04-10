@@ -27,9 +27,13 @@ int euclidRepeative(int a, int b)
 	//		b = a mod b
 	//		a = bsav
 	//}
+	while (b != 0)
+	{
+		temp = b;
+		b = a % b;
+		a = temp;
+	}
 	
-
 	//5. RETURN a
-
-	return 0;
+	return a;
 }

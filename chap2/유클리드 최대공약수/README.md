@@ -41,6 +41,7 @@ TC1. 1000보다 큰 임의의 수와 100보다 큰 임의의 수를 지정하여
 
 ##### <C코드 구현 결과>
 /* 버전 1 */
+
 //유클리드 최대공약수 재귀호출 방법
 int euclidRecursive(int a, int b)
 {
@@ -52,6 +53,7 @@ int euclidRecursive(int a, int b)
 	return euclidRecursive(b, a % b);
 
 /* 버전 2 */
+
 //유클리드 최대공약수 반복적인 방법
 int euclidRepeative(int a, int b)
 {

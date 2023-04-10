@@ -42,85 +42,83 @@ TC1. 1000보다 큰 임의의 수와 100보다 큰 임의의 수를 지정하여
 ##### <C코드 구현 결과>
 /* 버전 1 */
 
-//유클리드 최대공약수 재귀호출 방법
+	//유클리드 최대공약수 재귀호출 방법
+	int euclidRecursive(int a, int b)
+	{
+		//1. If(b == 0) return a
+		if (b == 0)
+			return a;
 
-int euclidRecursive(int a, int b)
-
-	//1. If(b == 0) return a
-	if (b == 0)
-		return a;
-
-	//2. return Euclid(b, a mod b)
-	return euclidRecursive(b, a % b);
-
+		//2. return Euclid(b, a mod b)
+		return euclidRecursive(b, a % b);
+	}
 
 /* 버전 2 */
 
-//유클리드 최대공약수 반복적인 방법
-
-int euclidRepeative(int a, int b)
-
-	//1. IF a < b RETURN 0; // 입력확인
-	if (a < b)
-		return 0;
-
-	//2. INT bsav; // 임시 기억
-	int temp = 0;
-
-	//3. WHILE(b != 0)
-	//	4. {
-	//	bsav = b
-	//		b = a mod b
-	//		a = bsav
-	//}
-	while (b != 0)
+	//유클리드 최대공약수 반복적인 방법
+	int euclidRepeative(int a, int b)
 	{
-		temp = b;
-		b = a % b;
-		a = temp;
-	}
-	
-	//5. RETURN a
-	return a;
+		//1. IF a < b RETURN 0; // 입력확인
+		if (a < b)
+			return 0;
 
+		//2. INT bsav; // 임시 기억
+		int temp = 0;
+
+		//3. WHILE(b != 0)
+		//	4. {
+		//	bsav = b
+		//		b = a mod b
+		//		a = bsav
+		//}
+		while (b != 0)
+		{
+			temp = b;
+			b = a % b;
+			a = temp;
+		}
+	
+		//5. RETURN a
+		return a;
+	}
 
 /* TC1. 테스트 함수 */
 
-int testEuclid()
-
-	clock_t start, finish;
-	double duration;
-	int gcdRecursive = 0, gcdRepeative = 0, num1 = 0, num2 = 0, times = 100000;
-	srand(time(NULL));
-
-	num1 = rand() % 1000 + 1000;
-	num2 = rand() % 100 + 10;
-
-	printf("안녕하세요. int형 데이터 타입 테스트함수 입니다.\n");
-
-	start = clock();
-	for (int i=0;i<times;i++)
+	int testEuclid()
 	{
-		gcdRecursive = euclidRecursive(num1, num2);
+		clock_t start, finish;
+		double duration;
+		int gcdRecursive = 0, gcdRepeative = 0, num1 = 0, num2 = 0, times = 100000;
+		srand(time(NULL));
+	
+		num1 = rand() % 1000 + 1000;
+		num2 = rand() % 100 + 10;
+	
+		printf("안녕하세요. int형 데이터 타입 테스트함수 입니다.\n");
+
+		start = clock();
+		for (int i=0;i<times;i++)
+		{
+			gcdRecursive = euclidRecursive(num1, num2);
+		}
+		finish = clock();
+	
+		duration = (double)(finish - start) / CLOCKS_PER_SEC;
+		
+		printf("재귀함수 호출을 이용한 %d와 %d의 최대공약수는 %d입니다.\n", num1, num2, gcdRecursive);
+		printf("걸린 시간은 %lf초 입니다.\n", duration);
+
+		start = clock();
+		for (int i = 0; i<times; i++)
+		{
+			gcdRepeative = euclidRepeative(num1, num2);
+		}
+		finish = clock();
+	
+		duration = (double)(finish - start) / CLOCKS_PER_SEC;
+
+		printf("         반복을 이용한 %d와 %d의 최대공약수는 %d입니다.\n", num1, num2, gcdRepeative);
+		printf("걸린 시간은 %lf초 입니다.\n", duration);
+
+		return 0;
 	}
-	finish = clock();
-
-	duration = (double)(finish - start) / CLOCKS_PER_SEC;
-
-	printf("재귀함수 호출을 이용한 %d와 %d의 최대공약수는 %d입니다.\n", num1, num2, gcdRecursive);
-	printf("걸린 시간은 %lf초 입니다.\n", duration);
-
-	start = clock();
-	for (int i = 0; i<times; i++)
-	{
-		gcdRepeative = euclidRepeative(num1, num2);
-	}
-	finish = clock();
-
-	duration = (double)(finish - start) / CLOCKS_PER_SEC;
-
-	printf("         반복을 이용한 %d와 %d의 최대공약수는 %d입니다.\n", num1, num2, gcdRepeative);
-	printf("걸린 시간은 %lf초 입니다.\n", duration);
-
-	return 0;
-

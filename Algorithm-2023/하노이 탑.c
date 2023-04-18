@@ -5,7 +5,6 @@
 	실습내용: 하노이 탑	*/
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <conio.h>
 
 void hanoi_tower(int n, char from, char tmp, char to);
 
@@ -27,3 +26,4 @@ void hanoi_tower(int n, char from, char tmp, char to)
 		hanoi_tower(n - 1, tmp, from, to);
 	}
 }
+

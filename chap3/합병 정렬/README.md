@@ -6,6 +6,9 @@
 - [X] 문제예시: data에 랜덤한 수를 저장 후 MergeSort함수를 이용해 정렬
 
 ### 알고리즘
+- [X] 명칭: 합병 정렬(Merge Sort)
+- [X] 입력: 정렬되지않은 배열
+- [X] 출력: 정렬된 배열
 1. k <- (left + right) / 2
 2. MergeSort(arr, left, k)
 3. MergeSort(arr, k+1, right)

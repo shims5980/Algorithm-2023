@@ -8,8 +8,13 @@
 Node* createNode(int value)
 {
 	//Node* new = (Node*)malloc(sizeof(Node));
+	
+	//동적 메모리 할당으로 새 노드 생성
 	Node* pNode = (Node*)malloc(sizeof(Node));
+
 	//new->value = value;
+	
+	//노드의 값과 왼쪽, 오른쪽노드 생성
 	pNode->value = value;
 	pNode->left = NULL;
 	pNode->right = NULL;
@@ -19,8 +24,11 @@ Node* createNode(int value)
 
 static Node* connectChild(Node* parent, Node* left, Node* right)
 {
+	//종료조건: parent가 NULL이면 NULL반환
 	if (parent == NULL)
 		return NULL;
+
+	//parent->left에 left노드, parent->right에 right노드 연결
 	parent->left = left;
 	parent->right = right;
 
@@ -29,6 +37,7 @@ static Node* connectChild(Node* parent, Node* left, Node* right)
 
 Node* makeTree()
 {
+	//기본 루트 생성
 	Node* pRoot = NULL;
 	Node* tLeft = NULL;
 	Node* tRight = NULL;
@@ -37,8 +46,10 @@ Node* makeTree()
 	tLeft = createNode(200);
 	tRight = createNode(300);
 
+	//루트 왼쪽 오른쪽 연결
 	connectChild(pRoot, tLeft, tRight);
 
+	//루트 오른쪽에 더 연결
 	connectChild(tRight, createNode(400), createNode(500));
 
 
@@ -47,10 +58,14 @@ Node* makeTree()
 
 void printTree(Node* root)
 {
+	//넘겨준 루트가 없으면 NULL반환
 	if (root == NULL)
 		return;
 
+	//루트값 출력
 	printf("Node: %d, ", root->value);
+
+	//각각 왼쪽과 오른쪽에 대해 재귀 호출
 	printTree(root->left);
 	printTree(root->right);
 }

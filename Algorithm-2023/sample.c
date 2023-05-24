@@ -83,7 +83,6 @@ int main(void)
 
 	gotoxy(1, 31);
 	printf("\n");
-
 	
     return 0;
 }

@@ -2,7 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
-
+#define P 38
+#define PP P+21
+// ┫ ┃ ━ ┓ ┛ ┗ ┏ ┳ ┻ ┣ ╋
 void gotoxy(int x, int y);
 
 int main(void)
@@ -10,19 +12,141 @@ int main(void)
 	int i;
 
 	for (i = 0; i < 120; i++)
-		printf("=");
+		printf("━");
 	for (i = 0; i < 28; i++)
-		printf("|\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t|\n");
+		printf("┃\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t┃\n");
 	for (i = 0; i < 120; i++)
-		printf("=");
-	
-	gotoxy(55, 3);
-	printf("네비게이션\n");
-	gotoxy(1, 5);
+		printf("━");
+	gotoxy(1, 8);
 	for (i = 0; i < 120; i++)
-		printf("=");
+		printf("━");
 
-	gotoxy(50, 8);
+	gotoxy(1, 1);
+	printf("┏");
+	gotoxy(120, 1);
+	printf("┓");
+	gotoxy(1, 8);
+	printf("┣");
+	gotoxy(120, 8);
+	printf("┫");
+	gotoxy(1, 30);
+	printf("┗");
+	gotoxy(120, 30);
+	printf("┛");
+
+	// ㄴ
+	gotoxy(P+2, 4);
+	printf("┃");
+	gotoxy(P+2, 5);
+	printf("┃");
+	gotoxy(P+2, 6);
+	printf("┗");
+	
+	gotoxy(P+4, 6);
+	printf("━");
+
+	// ㅔ
+	gotoxy(P+6, 5);
+	printf("━");
+	gotoxy(P+7, 5);
+	printf("┃");
+	gotoxy(P+7, 4);
+	printf("┃");
+	gotoxy(P+7, 6);
+	printf("┃");
+	
+	// ㅣ
+	gotoxy(P+9, 6);
+	printf("┃");
+	gotoxy(P+9, 4);
+	printf("┃");
+	gotoxy(P+9, 5);
+	printf("┃");
+
+	// ㅂ
+	gotoxy(P + 13, 4);
+	printf("┃");
+	gotoxy(P + 13, 5);
+	printf("┣");
+	gotoxy(P + 15, 5);
+	printf("━");
+	gotoxy(P + 13, 6);
+	printf("┗");
+	gotoxy(P + 15, 6);
+	printf("━");
+	gotoxy(P + 17, 4);
+	printf("┃");
+	gotoxy(P + 17, 5);
+	printf("┫");
+	gotoxy(P + 17, 6);
+	printf("┛");
+	
+	// ㅣ
+	gotoxy(P + 19, 6);
+	printf("┃");
+	gotoxy(P + 19, 4);
+	printf("┃");
+	gotoxy(P + 19, 5);
+	printf("┃");
+
+	// ㄴ
+	gotoxy(PP + 2, 4);
+	printf("┃");
+	gotoxy(PP + 2, 5);
+	printf("┃");
+	gotoxy(PP + 2, 6);
+	printf("┗");
+
+	gotoxy(PP + 4, 6);
+	printf("━");
+
+	// ㅔ
+	gotoxy(PP + 6, 5);
+	printf("━");
+	gotoxy(PP + 7, 5);
+	printf("┃");
+	gotoxy(PP + 7, 4);
+	printf("┃");
+	gotoxy(PP + 7, 6);
+	printf("┃");
+
+	// ㅣ
+	gotoxy(PP + 9, 6);
+	printf("┃");
+	gotoxy(PP + 9, 4);
+	printf("┃");
+	gotoxy(PP + 9, 5);
+	printf("┃");
+
+	// ㅂ
+	gotoxy(PP + 13, 4);
+	printf("┃");
+	gotoxy(PP + 13, 5);
+	printf("┣");
+	gotoxy(PP + 15, 5);
+	printf("━");
+	gotoxy(PP + 13, 6);
+	printf("┗");
+	gotoxy(PP + 15, 6);
+	printf("━");
+	gotoxy(PP + 17, 4);
+	printf("┃");
+	gotoxy(PP + 17, 5);
+	printf("┫");
+	gotoxy(PP + 17, 6);
+	printf("┛");
+
+	// ㅣ
+	gotoxy(PP + 19, 6);
+	printf("┃");
+	gotoxy(PP + 19, 4);
+	printf("┃");
+	gotoxy(PP + 19, 5);
+	printf("┃");
+
+	
+
+	/*gotoxy(50, 8);
 	for (i=0;i<20;i++)
 		printf("-");
 	
@@ -64,25 +188,31 @@ int main(void)
 	}
 	gotoxy(50, 28);
 	for (i = 0; i < 20; i++)
-		printf("-");
+		printf("-");*/
 
 
-	//10 18 26
-	gotoxy(56, 10);
-	printf("1.길찾기");
-	gotoxy(55, 18);
-	printf("2.최근기록");
-	gotoxy(57, 26);
-	printf("3.종료");
+	gotoxy(10, 15);
+	printf("1. 길찾기");
+	gotoxy(10, 18);
+	printf("2. 최근기록");
+	gotoxy(10, 21);
+	printf("3. 즐겨찾기");
+	gotoxy(10, 24);
+	printf("4. 종료");
 
+
+	
+	gotoxy(90, 29);
+	printf("PG ver. B202305301752");
+
+
+
+
+	gotoxy(3, 2);
+	printf("UI S/N: U 0.1");
 	gotoxy(2, 29);
 	printf("원하시는 메뉴 번호를 입력하세요>>> ");
-
-
-
-
-	gotoxy(1, 31);
-	printf("\n");
+	_getch();
 	
     return 0;
 }

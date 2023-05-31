@@ -20,12 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hi.c" />
-    <ClCompile Include="sample.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="NewFile.txt">
+    <ClCompile Include="sample.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </Text>
+    </ClCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

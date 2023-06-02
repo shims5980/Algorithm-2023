@@ -108,16 +108,24 @@ void find3(const char* start, const char* end)
 		// gotoxy();	거리 출력할 칸으로 이동
 		printf("%.2lfkm", distance);
 
+		time *= 1.5;
+
 		if (time >= 60)
 		{
 			hour = time / 60;
 			min = time % 60;
 			// gotoxy();	시간 출력할 칸으로 이동
-			printf("%d시간 %2d분")
+			printf("%02d시간 %2d분", hour, min);
+		}
+		else
+		{
+			// gotoxy();	시간 출력할 칸으로 이동
+			printf("%02d분", time);
 		}
 
-		// gotoxy();	시간 출력할 칸으로 이동
-		printf("%d", start);
-
+		// gotoxy();	안내문구 출력할 곳으로 이동
+		printf("돌아가시려면 아무키나 눌러주새요...");
+		if (_getch())
+			main0();
 	}
 }

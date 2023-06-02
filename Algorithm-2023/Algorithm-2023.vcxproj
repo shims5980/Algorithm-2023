@@ -19,10 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="hi.c" />
-    <ClCompile Include="sample.c">
+    <ClCompile Include="Bookmark.c" />
+    <ClCompile Include="Findroad.c" />
+    <ClCompile Include="Test.c" />
+    <ClCompile Include="연습장1.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="MainAndRecent.c" />
+    <ClCompile Include="Manager.c" />
+    <ClCompile Include="연습장2.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="MAIN.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="navi.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

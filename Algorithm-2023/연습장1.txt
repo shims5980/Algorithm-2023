@@ -1,20 +1,31 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
+typedef struct loc {
+	char name[20];
+	int x;
+	int y;
+}Loc;
 
 void test();
 void test2();
 
 int main(void)
 {
-	char name[20];
-	int a, b;
-	FILE* fp = fopen("D:\ex.txt", "r");
 
-	fscanf(fp, "%s\t%d\t%d\n", name, &a, &b);
-	printf("%s, %d ,%d", name, a, b);
+	Loc loc[20];
+	FILE* fp = fopen("D:\ex.txt", "r");
+	int i = 0;
+
+	while (fscanf(fp, "%s\t%d\t%d\n", loc[i].name, &loc[i].x, &loc[i].y) != EOF)
+		i++;
 
 	fclose(fp);
+	int n = i;
+	for (i = 0; i < n; i++)
+		printf("%s\t%d\t%d\n", loc[i].name, loc[i].x, loc[i].y);
+
+	
 
 	return 0;
 }

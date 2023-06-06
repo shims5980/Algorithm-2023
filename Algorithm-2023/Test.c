@@ -7,7 +7,13 @@
 #include "navi.h"
 
 
+
+
+
+extern void file_read();
+
 void test()
 {
+	file_read();
 	main0();
 }

@@ -6,7 +6,10 @@
 
 void find1();
 void find2(const char* start, const char* end);
-void find3(const char* start, const char* end);
+int find3(const char* start, const char* end);
+extern void find_UI_1_1();    // 길찾기 메인화면
+extern void find_UI_1_2(char* str1, char* str2);    // 출발지 도착지 입력하면 확인문
+extern void find_UI_1_3();    // 입력한거 최종출력 출력
 
 void find1()
 {
@@ -14,25 +17,25 @@ void find1()
 
 	while (1)
 	{
-		// find_UI_1.1();
+		find_UI_1_1();
 		
-		// gotoxy(); 출발지 입력 칸으로 이동
+		gotoxy(34, 17);
 		scanf("%s", start);
 		
 		// 뒤로 돌아가기 위한 조건
-		if (start == '0')
+		if (strcmp(start, "0") == 0)
 		{
-			// 뒤로 돌아가는 UI함수
+			Back_UI_1_1();
 			break;
 		}
 
-		//gotoxy();, 도착지 입력 칸으로 이동
+		gotoxy(34, 22);
 		scanf("%s", end);
 
 		// 뒤로 돌아가기 위한 조건
-		if (end == '0')
+		if (strcmp(end, "0") == 0)
 		{
-			// 뒤로 돌아가는 UI함수
+			Back_UI_1_1();
 			break;
 		}
 
@@ -42,71 +45,51 @@ void find1()
 
 void find2(const char* start, const char* end)
 {
-	int user;
+	int user = 0;
+	int shutdown;
 
 	while (1)
 	{
-		// find_UI_1.2();
+		find_UI_1_2(start, end);
 
-		// 올바른 입력이면 1, 그렇지 않으면 0
+		scanf("%d", &user);
+
 		if (user == 1)
-			find3(start, end);
+		{
+			shutdown = find3(start, end);
+		}
 		else
 		{
-			// 뒤로 돌아가는 UI함수
+			Back_UI_1_1();
 			break;
 		}
+		if (shutdown == 0)
+			break;
 	}
 }
 
-void find3(const char* start, const char* end)
+int find3(const char* start, const char* end)
 {
 	int size, check = 0, i, starti, endi, time, hour, min;
-	double distance;
+	double distance1;
 
 	while (1)
 	{
-		// 출발지와 도착지 최근기록에 저장하는 파일 함수 매개변수(const char* start, const char* end)
-		// 지역 저장된 파일 함수
+		recent_path(start, end);
+		distance1 = distance_search(start, end);
 
-		/*size = sizeof(지역이름변수) / sizeof(지역이름변수[0]);
+		time = (int)distance1;
 
-		for (i = 0; i < size; i++)
-		{
-			if (srtcmp(start, 지역변수이름[i]) == 0)
-				starti = i;
-
-			if (strcmp(end, 지역변수이름[i]) == 0)
-				endi = i;
-
-			if (srtcmp(start, 지역변수이름[i]) != 0 || srtcmp(end, 지역변수이름[i]) != 0)
-			{
-				check = 1;
-				break;
-			}
-		}*/
-
-		if (check == 1)
-		{
-			// 오류 UI 함수
-			find1();
-		}
-
-
-		// distance = 지역간 거리 저장된 2차원 배열 함수   입력: starti, endi   출력: 시간(double형)
-		time = (int)distance;
-
-
-		// find_UI_1.3();
+		find_UI_1_3();
 		
-		// gotoxy();	출발지 출력할 칸으로 이동
+		gotoxy(21, 12);		//출발지 출력할 칸으로 이동
 		printf("%s", start);
 
-		// gotoxy();	도착지 출력할 칸으로 이동
+		gotoxy(21, 16);		//도착지 출력할 칸으로 이동
 		printf("%s", end);
 		
-		// gotoxy();	거리 출력할 칸으로 이동
-		printf("%.2lfkm", distance);
+		gotoxy(21, 20);		//거리 출력할 칸으로 이동
+		printf("%.2lfkm", distance1);
 
 		time *= 1.5;
 
@@ -114,18 +97,19 @@ void find3(const char* start, const char* end)
 		{
 			hour = time / 60;
 			min = time % 60;
-			// gotoxy();	시간 출력할 칸으로 이동
+			gotoxy(21, 24);		//시간 출력할 칸으로 이동
 			printf("%02d시간 %2d분", hour, min);
 		}
 		else
 		{
-			// gotoxy();	시간 출력할 칸으로 이동
+			gotoxy(21, 24);		//시간 출력할 칸으로 이동
 			printf("%02d분", time);
 		}
 
-		// gotoxy();	안내문구 출력할 곳으로 이동
-		printf("돌아가시려면 아무키나 눌러주새요...");
+		gotoxy(80, 28);
+		printf("돌아가시려면 아무키나 입력하시오...");
 		if (_getch())
-			main0();
+			break;
 	}
+	return 0;
 }

@@ -34,6 +34,7 @@ void bookmark_UI_4_4_1(); // 즐찾 지역 삭제 화면
 
 void Error_UI_1_0();
 void Back_UI_1_1();
+void End_UI_1_1();
 
 void gotoxy(int x, int y)
 {
@@ -84,16 +85,41 @@ void main_UI()
 
 
 
-	gotoxy(10, 12);
+	gotoxy(16, 12);
 	printf("1. 길찾기");
-	gotoxy(10, 16);
+	gotoxy(16, 16);
 	printf("2. 즐겨찾기");
-	gotoxy(10, 20);
+	gotoxy(16, 20);
 	printf("3. 최근기록");
-	gotoxy(10, 24);
+	gotoxy(16, 24);
 	printf("4. 종료");
 
+	// 도움말 창
+	/*
+	gotoxy(81, 9);
+	for (i = 0; i < 35; i++)
+		printf("━");
 
+	gotoxy(81, 9);
+	printf("┏");
+	gotoxy(116, 9);
+	printf("┓");
+
+	for (i = 0; i < 18; i++)
+	{
+		gotoxy(81, 10 + i);
+		printf("┃\t\t\t\t   ┃\n");
+	}
+
+	gotoxy(81, 28);
+	for (i = 0; i < 35; i++)
+		printf("━");
+
+	gotoxy(81, 28);
+	printf("┗");
+	gotoxy(116, 28);
+	printf("┛");
+	*/
 
 	gotoxy(97, 29);
 	printf("PG ver. B202305301752");
@@ -102,7 +128,7 @@ void main_UI()
 	gotoxy(3, 2);
 	printf("UI MAIN: 1.0");
 	gotoxy(2, 29);
-	printf("원하시는 메뉴 번호를 입력하세요>>> ");
+	printf("  원하시는 메뉴 번호를 입력하세요>>> ");
 
 }
 
@@ -151,7 +177,7 @@ void find_UI_1_1()    // 길찾기 메인화면
 	printf("UI Find Road: 1.1");
 
 	gotoxy(10, 12);
-	printf("★메인화면으로 돌아가시려면 숫자 0을 눌러주세요★");
+	printf("MENU 번호는 출발지에 입력하세요");
 
 	gotoxy(10, 17);
 	printf("출발지를 입력하세요 >> ");
@@ -164,8 +190,9 @@ void find_UI_1_1()    // 길찾기 메인화면
 void find_UI_1_2(char* str1, char* str2)    // 출발지 도착지 입력하면 확인문
 {
 	int i;
-	
 
+	gotoxy(28, 12);
+	printf("         ");
 	for (i = 11; i <= 24; i++)
 	{
 		gotoxy(30, i);
@@ -459,9 +486,53 @@ void record_UI_3_1()   // 최근기록 한번에 보여주는 화면
 	gotoxy(29, 7);
 	printf(" *       * ********* ********* ********* *       * *******   \n");
 
+	// 도움말 창
 
-	gotoxy(10, 10);
-	printf("출발지\t\t도착지\n");
+	gotoxy(81, 9);
+	for (i = 0; i < 35; i++)
+		printf("━");
+
+	gotoxy(81, 9);
+	printf("┏");
+	gotoxy(116, 9);
+	printf("┓");
+
+	for (i = 0; i < 18; i++)
+	{
+		gotoxy(81, 10 + i);
+		printf("┃\t\t\t\t   ┃\n");
+	}
+
+	gotoxy(81, 28);
+	for (i = 0; i < 35; i++)
+		printf("━");
+
+	gotoxy(81, 28);
+	printf("┗");
+	gotoxy(116, 28);
+	printf("┛");
+
+	gotoxy(88, 11);
+	printf("# 최근기록 유의 사항 #");
+
+	gotoxy(84, 14);
+	printf("가장 최근에 입력한 지역부터");
+	gotoxy(84, 15);
+	printf("오름차순으로 출력됩니다.");
+
+	gotoxy(84, 18);
+	printf("최근기록은 최근에 입력한 지역중");
+	gotoxy(84, 19);
+	printf("9개만 출력됩니다.");
+
+	gotoxy(84, 22);
+	printf("너무 오래된 기록또한 삭제될 수");
+	gotoxy(84, 23);
+	printf("있습니다.");
+
+
+	gotoxy(16, 10);
+	printf("출발지\t\t\t도착지\n");
 
 	gotoxy(3, 2);
 	printf("UI RC_RECORD: 3.1");
@@ -508,13 +579,13 @@ void bookmark_UI_4_1() // 즐찾 메인화면
 	printf(" *******  ******** ******** *     **  *    *    * *       * *       * *     **   \n");
 	gotoxy(20, 8);
 
-	gotoxy(10, 12);
+	gotoxy(16, 12);
 	printf("1. 즐겨찾기 조회 ");
-	gotoxy(10, 16);
+	gotoxy(16, 16);
 	printf("2. 즐겨찾기 추가");
-	gotoxy(10, 20);
+	gotoxy(16, 20);
 	printf("3. 즐겨찾기 삭제");
-	gotoxy(10, 24);
+	gotoxy(16, 24);
 	printf("4. 돌아가기");
 
 
@@ -565,8 +636,8 @@ void bookmark_UI_4_2() // 즐찾한 목록 출력하는 화면
 	printf(" *******  ******** ******** *     **  *    *    * *       * *       * *     **   \n");
 	gotoxy(20, 8);
 
-	gotoxy(10, 10);
-	printf(" 즐겨찾기 목록");
+	gotoxy(16, 10);
+	printf("즐겨찾기 목록");
 
 	gotoxy(3, 2);
 	printf("UI BOOKMARK: 4.2");
@@ -843,7 +914,7 @@ void bookmark_UI_4_3_1() // 즐찾 지역 추가 화면
 
 	gotoxy(3, 2);
 	printf("UI BOOKMARK: 4.3.1");
-	
+
 }
 
 void bookmark_UI_4_4_1() // 즐찾 지역 삭제 화면
@@ -954,6 +1025,9 @@ void Back_UI_1_1()
 {
 	int i;
 
+	gotoxy(28, 12);
+	printf("         ");
+
 	for (i = 11; i <= 24; i++)
 	{
 		gotoxy(30, i);
@@ -987,15 +1061,137 @@ void Back_UI_1_1()
 	gotoxy(88, 12);
 	printf("X");
 
-	gotoxy(50, 20);
-	printf("뒤로 돌아갑니다...");
-	gotoxy(71, 20);
+	gotoxy(52, 19);
+	printf("뒤로 돌아갑니다");
+	gotoxy(88, 24);
 	printf("3");
 	Sleep(1000);
-	gotoxy(71, 20);
+	gotoxy(88, 24);
 	printf("2");
 	Sleep(1000);
-	gotoxy(71, 20);
+	gotoxy(88, 24);
 	printf("1");
 	Sleep(1000);
+}
+
+void End_UI_1_1()
+{
+	system("cls");
+	int i;
+
+	for (i = 11; i <= 24; i++)
+	{
+		gotoxy(30, i);
+		printf("┃                                                           ┃");
+	}
+
+	gotoxy(30, 11);
+	for (i = 0; i < 60; i++)
+		printf("━");
+
+	gotoxy(30, 13);
+	for (i = 0; i < 60; i++)
+		printf("━");
+
+	gotoxy(30, 25);
+	for (i = 0; i < 60; i++)
+		printf("━");
+
+
+	gotoxy(30, 11);
+	printf("┏");
+	gotoxy(90, 11);
+	printf("┓");
+	gotoxy(30, 25);
+	printf("┗");
+	gotoxy(90, 25);
+	printf("┛");
+	gotoxy(30, 13);
+	printf("┣");
+
+	gotoxy(88, 12);
+	printf("X");
+
+	gotoxy(88, 24);
+	printf("5");
+
+	gotoxy(49, 18);
+	printf("프");
+	Sleep(100);
+	gotoxy(51, 18);
+	printf("로");
+	Sleep(100);
+	gotoxy(53, 18);
+	printf("그");
+	Sleep(100);
+	gotoxy(55, 18);
+	printf("램");
+	Sleep(100);
+	gotoxy(57, 18);
+	printf("을");
+	Sleep(100);
+	gotoxy(60, 18);
+	printf("종");
+	Sleep(100);
+	gotoxy(62, 18);
+	printf("료");
+	Sleep(100);
+	gotoxy(64, 18);
+	printf("합");
+	Sleep(100);
+	gotoxy(66, 18);
+	printf("니");
+	Sleep(100);
+	gotoxy(68, 18);
+	printf("다");
+	Sleep(100);
+
+	gotoxy(88, 24);
+	printf("4");
+
+	Sleep(500);
+
+	gotoxy(49, 19);
+	printf("이");
+	Sleep(100);
+	gotoxy(51, 19);
+	printf("용");
+	Sleep(100);
+	gotoxy(53, 19);
+	printf("해");
+	Sleep(100);
+	gotoxy(55, 19);
+	printf("주");
+	Sleep(100);
+	gotoxy(57, 19);
+	printf("셔");
+	Sleep(100);
+	gotoxy(88, 24);
+	printf("3");
+	gotoxy(59, 19);
+	printf("서");
+	Sleep(100);
+	gotoxy(62, 19);
+	printf("감");
+	Sleep(100);
+	gotoxy(64, 19);
+	printf("사");
+	Sleep(100);
+	gotoxy(66, 19);
+	printf("합");
+	Sleep(100);
+	gotoxy(68, 19);
+	printf("니");
+	Sleep(100);
+	gotoxy(70, 19);
+	printf("다");
+	Sleep(500);
+
+	gotoxy(88, 24);
+	printf("2");
+	Sleep(1000);
+	gotoxy(88, 24);
+	printf("1");
+	Sleep(1000);
+	system("cls");
 }

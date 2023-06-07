@@ -20,10 +20,10 @@ extern void floyd();                            // 최단 경로 알고리즘
 extern void recent_path(char start[], char end[]);       // 최근 경로 텍스트 파일에 저장하는 함수 
 extern double distance_search(char start[], char end[]); // 지역 간 거리를 찾아주는 함수 
 
-extern void recent_path_watch();                     // 최근 경로 출력하는 함수 
-extern void region_addition();                        // 지역 추가하는 함수 
+extern void recent_path_watch(int menu);                     // 최근 경로 출력하는 함수 
+extern int region_addition();                        // 지역 추가하는 함수 
 extern void region_print();                           // 지역 출력해주는 함수 
 extern void bookmark_addtion(char book[]);               // 즐겨찾기 지역 추가 
-extern void bookmark_watch();
+extern void bookmark_watch(int mneu);
 extern void Error_UI_1_0();
 extern void Back_UI_1_1();

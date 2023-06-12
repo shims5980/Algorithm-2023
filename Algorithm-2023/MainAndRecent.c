@@ -15,7 +15,6 @@ extern void Start_UI_1_1();
 void main0()
 {
 	int menu;
-	Sleep(3000);
 	Start_UI_1_1();
 	while (1)
 	{

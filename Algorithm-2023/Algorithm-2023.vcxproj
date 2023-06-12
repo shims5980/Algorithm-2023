@@ -35,6 +35,9 @@
     <ClCompile Include="MAIN.c" />
     <ClCompile Include="UI_4차수정.c" />
     <ClCompile Include="파일.c" />
+    <ClCompile Include="함수 정리.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="navi.h" />

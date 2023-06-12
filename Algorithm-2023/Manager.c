@@ -57,7 +57,7 @@ void manager11()
 void manager12() 
 {
 	char name[20][20];
-	int index[20], x[20], y[20], i = 0, j, user;
+	int index[20], x[20], y[20], i = 0, j, user, count = 0;
 
 	while (1)
 	{
@@ -80,11 +80,20 @@ void manager12()
 
 		for (j = 0; j < i; j++)
 		{
-			gotoxy(16, 12 + (2 * j));	//지역 목록 출력할 칸으로 이동
-			printf("%d번\t%s\n", j + 1, name[j]);
+			if (j <= 7)
+			{
+				gotoxy(16, 12 + (2 * j));	//지역 목록 출력할 칸으로 이동
+				printf("%d번\t%s\n", j + 1, name[j]);
+			}
+			else
+			{
+				gotoxy(40, 12 + (2 * count));	//지역 목록 출력할 칸으로 이동
+				printf("%d번\t%s\n", j + 1, name[j]);
+				count++;
+			}
 		}
 
-		gotoxy(50, 29);
+		gotoxy(38, 29);
 		scanf("%d", &user);
 		if (user == 0)
 		{

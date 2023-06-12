@@ -64,15 +64,9 @@ void distance_decide(Location P[]) {	// °¢ Áö¿ª¿¡¼­ ´Ù¸¥ Áö¿ª±îÁöÀÇ °Å¸®¸¦ °áÁ¤Ç
 	double dist;
 	for (i = 0; i < RRN; i++) {
 		for (j = i + 1; j < RRN; j++) {
-			dist = sqrt(pow(P[i].x - P[j].x, 2) + pow(P[i].y - P[j].y, 2));	// °Å¸®ÀÇ ½Ç¼ö °ª  
-			if (dist >= 30.0) {		// if °Å¸®°¡ 30km ÀÌ»óÀÌ¶ó¸é °Å¸®¸¦ ¹«ÇÑ´ë·Î ¼³Á¤(ÇÑ ¹ø¿¡ °¡´Â ±æ x) 
-				distance[i][j] = INF;
-				distance[j][i] = INF;
-			}
-			else {
-				distance[i][j] = dist;
-				distance[j][i] = dist;
-			}
+			dist = pow(P[i].x - P[j].x, 2) + pow(P[i].y - P[j].y, 2);
+			distance[i][j] = dist;
+			distance[j][i] = dist;
 		}
 	}
 }
@@ -155,14 +149,14 @@ void recent_path_watch(int menu) {   // ÃÖ±Ù °æ·Î Ãâ·Â ÇÔ¼ö
 			for (j = i - 1; j > k; j--) {
 				gotoxy(85, 12 + (2 * x));
 				x++;
-				printf("%s\t\t\t%s", recent1[j], recent2[j]);
+				printf("%s\t->\t%s", recent1[j], recent2[j]);
 			}
 		}
 		else {
 			for (j = i - 1; j >= 0; j--) {
 				gotoxy(85, 12 + (2 * x));
 				x++;
-				printf("%s\t\t\t%s", recent1[j], recent2[j]);
+				printf("%s\t->\t%s", recent1[j], recent2[j]);
 			}
 		}
 	}
@@ -182,8 +176,8 @@ void region_addition() {
 	gotoxy(46, 24); //ÁÂÇ¥ ÀÔ·Â¹ÞÀ» Ä­À¸·Î ÀÌµ¿
 	scanf("%d", &y);
 	fprintf(fp, "%d\t%s\t%d\t%d\n", RRN - 1, region, x, y);
-	file_read();
 	fclose(fp);
+	file_read();
 }
 void region_print() {
 	int i;
@@ -205,6 +199,7 @@ void bookmark_watch(int menu)
 	int k = 0;
 	int j;
 	int x = 0;
+	int y = 0;
 	while (fscanf(fp, "%s\n", bookmark[i]) != EOF) {
 		i++;
 	}
@@ -216,18 +211,38 @@ void bookmark_watch(int menu)
 	}
 	if (menu == 1)
 	{
+		
 		for (j = k; j < i; j++) {
-			gotoxy(16, 12 + (2 * x));
-			x++;
-			printf("%s\n", bookmark[j]);
+			if (j <= 8)
+			{
+				gotoxy(16, 12 + (2 * x));
+				x++;
+				printf("%s\n", bookmark[j]);
+			}
+			else
+			{
+				gotoxy(16, 12 + (2 * y));
+				y++;
+				printf("%s\n", bookmark[j]);
+			}
 		}
 	}
 	else if (menu == 2)
 	{
-		for (j = k; j < i; j++) {
-			gotoxy(85, 12 + (2 * x));
-			x++;
-			printf("%s\n", bookmark[j]);
+		for (j = k; j < i; j++) 
+		{
+			if (j<=7)
+			{
+				gotoxy(85, 12 + (2 * x));
+				x++;
+				printf("%s\n", bookmark[j]);
+			}
+			else
+			{
+				gotoxy(100, 12 + (2 * y));
+				y++;
+				printf("%s\n", bookmark[j]);
+			}
 		}
 	}
 }

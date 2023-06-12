@@ -51,11 +51,21 @@ void find1()
 			gotoxy(34, 17);
 			printf("      ");
 			tips1_2();
-			continue;
+			gotoxy(110, 27);
+			printf("Enter");
+			if (_getch())
+				continue;
 		}
 		else if (strcmp(start, "3") == 0) // 최근기록
-			continue;
-		//tips1_3();
+		{
+			gotoxy(34, 17);
+			printf("      ");
+			tips1_3();
+			gotoxy(110, 27);
+			printf("Enter");
+			if (_getch())
+				continue;
+		}
 
 		gotoxy(34, 22);
 		scanf("%s", end);
@@ -76,14 +86,10 @@ void find2(const char* start, const char* end)
 		scanf("%d", &user);
 
 		if (user == 1)
-		{
 			shutdown = find3(start, end);
-		}
 		else
-		{
-			Back_UI_1_1();
 			break;
-		}
+
 		if (shutdown == 0)
 			break;
 	}
@@ -99,6 +105,7 @@ int find3(const char* start, const char* end)
 		recent_path(start, end);
 		distance1 = distance_search(start, end);
 
+		//distance1 *= 1.8;
 		time = (int)distance1;
 
 		find_UI_1_3();
@@ -110,16 +117,16 @@ int find3(const char* start, const char* end)
 		printf("%s", end);
 		
 		gotoxy(21, 20);		//거리 출력할 칸으로 이동
-		printf("%.2lfkm", distance1);
+		printf("%.lfkm", distance1);
 
-		time *= 1.5;
+		time *= 0.9;
 
 		if (time >= 60)
 		{
 			hour = time / 60;
 			min = time % 60;
 			gotoxy(21, 24);		//시간 출력할 칸으로 이동
-			printf("%02d시간 %2d분", hour, min);
+			printf("%d시간 %02d분", hour, min);
 		}
 		else
 		{
@@ -159,7 +166,7 @@ void tips1()
 void tips1_1()
 {
 	char name[20][20];
-	int index[20], x[20], y[20], i = 0, j, user;
+	int index[20], x[20], y[20], i = 0, j, count = 0;
 
 	shape();
 
@@ -176,15 +183,25 @@ void tips1_1()
 
 	for (j = 0; j < i; j++)
 	{
-		gotoxy(85, 12 + (2 * j));	//지역 목록 출력할 칸으로 이동
-		printf("%s\n", name[j]);
+		if (j <= 7)
+		{
+			gotoxy(85, 12 + (2 * j));	//지역 목록 출력할 칸으로 이동
+			printf("%s\n", name[j]);
+		}
+		else
+		{
+			gotoxy(100, 12 + (2 * count));	//지역 목록 출력할 칸으로 이동
+			printf("%s\n", name[j]);
+			count++;
+		}
 	}
 }
 
 void tips1_2()
 {
 	shape();
-
+	gotoxy(85, 10);
+	printf("내 즐겨찾기");
 	bookmark_watch(2);
 }
 
@@ -192,7 +209,8 @@ void tips1_3()
 {
 	
 	shape();
-
+	gotoxy(85, 10);
+	printf("최근 검색 기록");
 	recent_path_watch(2);
 }
 

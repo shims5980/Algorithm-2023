@@ -10,11 +10,13 @@ extern void main_UI();        // 메인 화면
 extern void record_UI_3_1();   // 최근기록 한번에 보여주는 화면
 extern void recent_path_watch();
 extern void End_UI_1_1();
+extern void Start_UI_1_1();
 
 void main0()
 {
 	int menu;
-
+	Sleep(3000);
+	Start_UI_1_1();
 	while (1)
 	{
 		main_UI();

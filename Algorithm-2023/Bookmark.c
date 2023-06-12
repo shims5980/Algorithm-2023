@@ -17,7 +17,7 @@ extern void bookmark_UI_4_4(); // 즐찾 지역 삭제 화면확인(작게 띄움)
 
 extern void bookmark_UI_4_3_1(); // 즐찾 지역 추가 화면
 extern void bookmark_UI_4_4_1(); // 즐찾 지역 삭제 화면
-
+extern void tips1_1();
 void bookmark1()
 {
 	int menu;
@@ -68,16 +68,16 @@ void bookmark12()
 	while (1)
 	{
 		bookmark_UI_4_3_1(); // 즐찾 지역 추가 화면
-
-		gotoxy(49, 13);
+		tips1_1();
+		
+		gotoxy(49, 17);
 		scanf("%s", name);
-
+	
 		if (strcmp(name, "0") == 0)
 		{
 			Back_UI_1_1();
 			break;
 		}
-
 		bookmark_addtion(name);
 
 		bookmark_UI_4_3(); // 즐찾 지역 추가 화면확인(작게 띄움)
@@ -88,7 +88,7 @@ void bookmark12()
 void bookmark13()
 {
 	char name[20][20];
-	int x[20], y[20], i = 0, j, user, size;
+	int x[20], y[20], i = 0, j, user, size = 0;
 
 
 	while (1)
@@ -104,7 +104,7 @@ void bookmark13()
 		{
 			gotoxy(16, 16); //안내문 출력할 칸으로 이동
 			printf("즐겨찾기가 비어있습니다. 즐겨찾기를 먼저 추가해주세요");
-			Sleep(3000);
+			Sleep(2000);
 			break;
 		}
 
@@ -112,8 +112,17 @@ void bookmark13()
 
 		for (j = 0; j < i; j++)
 		{
-			gotoxy(16, 12 + ( 2 * j));	//즐겨찾기 목록 출력할 칸으로 이동
-			printf("%d번\t%s\n", j + 1, name[j]);
+			if (j <= 8)
+			{
+				gotoxy(16, 12 + (2 * j));	//즐겨찾기 목록 출력할 칸으로 이동
+				printf("%d번\t%s\n", j + 1, name[j]);
+			}
+			else
+			{
+				gotoxy(40, 12 + (2 * size));	//즐겨찾기 목록 출력할 칸으로 이동
+				printf("%d번\t%s\n", j + 1, name[j]);
+				size++;
+			}
 		}
 
 		gotoxy(50, 29);
